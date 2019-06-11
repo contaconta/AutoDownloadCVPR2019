@@ -6,8 +6,8 @@
 import os
 import requests
 
-conf = 'ICCV2015' # CVPR2015/CVPR2014/CVPR2013/ICCV2013
-header = 'http://www.cv-foundation.org/openaccess/'
+conf = 'CVPR2019'
+header = 'http://openaccess.thecvf.com/'
 
 def name_check(name):
     name = name.replace('?','')
