@@ -3,6 +3,7 @@
 @author: 51takahashi
 """
 
+from pathlib import Path
 import os
 import requests
 
@@ -24,13 +25,21 @@ def main():
     txt = r.text;
     lines = txt.split('\n')
     cnt = 0
+
+    existing_files = [f.stem for f in Path(conf).glob('*.pdf')]
+
     for line in lines:
         if line.find('<dt class="ptitle">')>-1:
             pdfname = conf+'/'+name_check(line.split('>')[3].split('<')[0])+'.pdf'
             cnt+=1
+
         if len(line)>0:
             if line[0]=='[':
                 print(str(cnt)+':'+pdfname)
+
+                if pdfname.replace('.pdf', '') in existing_files:
+                    continue
+
                 if not os.path.exists(pdfname):
                     url = header+line.split('"')[1]
                     r = requests.get(url)
@@ -39,4 +48,4 @@ def main():
                     f.close()
 
 if __name__ == '__main__':
-    main()        
+    main()
