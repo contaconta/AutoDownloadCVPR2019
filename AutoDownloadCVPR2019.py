@@ -13,7 +13,7 @@ def name_check(name):
     name = name.replace('?','')
     name = name.replace(':','')
     name = name.replace('*','')
-    name = name.replace('"','')
+    name = name.replace('\"','')
     name = name.replace('/',' or ')
     return name
 
