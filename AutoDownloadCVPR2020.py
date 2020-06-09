@@ -6,7 +6,7 @@
 import os
 import requests
 
-conf = 'CVPR2019'
+conf = 'CVPR2020'
 header = 'http://openaccess.thecvf.com/'
 
 def name_check(name):
