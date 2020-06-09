@@ -20,7 +20,7 @@ def main():
     if not os.path.exists(conf):
         os.mkdir(conf)
     r = requests.get(header+conf+'.py')
-    txt = r.text;
+    txt = r.text
     lines = txt.split('\n')
     cnt = 0
     for line in lines:
